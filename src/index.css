@@ -1,13 +1,85 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: crimson;
+  font-family: 'Raleway';
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  width: 380px;
+  margin: auto;
+  padding: 100px 0;
+}
+
+.inputTodoTxt {
+  width: 270px;
+  padding: 10px;
+  font-size: 16px;
+  font-family: 'Raleway', sans-serif;
+  margin-right: 10px;
+  border: none;
+}
+
+.addTodoBtn {
+  padding: 10px;
+  font-size: 16px;
+  width: 70px;
+  border: none;
+  background-color: rgb(166, 224, 49);
+  color: rgb(41, 41, 41);
+  font-family: 'Raleway';
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 50px;
+}
+
+.addTodoBtn:hover {
+  background-color: rgb(179, 245, 48);
+}
+
+.todolist {
+  background-color: whitesmoke;
+  width: 370px;
+  margin: 5px 0;
+}
+
+.checkbox {
+  cursor: pointer;
+  position: relative;
+  margin-left: 10px;
+}
+
+.showTodo {
+  display: inline-flex;
+  margin-left: 15px;
+  font-size: 16px;
+  font-family: 'Shadows Into Light', cursive;
+  letter-spacing: 2px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 60px;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.deleteBtn {
+  background-color: red;
+  float: right;
+  border: none;
+  padding: 5px 10px;
+  margin-top: 14px;
+  margin-right: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.deleteBtn:hover {
+  background-color: rgb(173, 0, 0);
+}
+
+.emptyTodoList {
+  width: 370px;
+  text-align: center;
+  color: white;
 }
