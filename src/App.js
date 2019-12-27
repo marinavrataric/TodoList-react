@@ -1,32 +1,32 @@
 import React, { Component } from 'react'
 
-import Todos from './Todos'
 import NewTodo from './NewTodo'
+import Todo from './Todo'
 
 class App extends Component {
     constructor() {
         super()
         this.state = {
             todos: [
-                {id: 0, content: 'Buy milk', checked: false},
-                {id: 1, content: 'Take out the trash', checked: true} 
+                {id: 0, content: 'Clean the dishes', checked: true},
+                {id: 1, content: 'Buy milk', checked: false}
             ]
         }
-        this.deleteTodo = this.deleteTodo.bind(this)
-        this.handleCheck = this.handleCheck.bind(this)
         this.addTodo = this.addTodo.bind(this)
     }
 
-    deleteTodo(id) {
-        const updatedTodos = this.state.todos.filter( todo => {
-            return todo.id !== id
-        })
+    addTodo(newTodo) {
+        newTodo.id = Math.random()
+        newTodo.checked = false
+
+        const updatedTodos = [...this.state.todos, newTodo]
+
         this.setState({
             todos: updatedTodos
         })
     }
 
-    handleCheck(id) {
+    handleCheck = (id) => {
         const updatedTodos = this.state.todos.map( todo => {
             if(id === todo.id) {
                 todo.checked = !todo.checked
@@ -38,34 +38,31 @@ class App extends Component {
         })
     }
 
-    addTodo(newTodo) {
-        newTodo.id = Math.random()
-        newTodo.checked = false
-        console.log(newTodo)
-
+    deleteTodo = (id) => {
+        const updatedTodos = this.state.todos.filter( todo => {
+            if(id !== todo.id) {
+                return todo
+            }
+        })
         this.setState({
-            todos: [...this.state.todos, newTodo]
+            todos: updatedTodos
         })
     }
 
-    render() {      
-        const todoComponent = this.state.todos.length > 0 ? this.state.todos.map( todo => {
-            return <Todos 
-                    key={todo.id} 
+    render() {
+        const todoComponents = this.state.todos.length > 0 ? this.state.todos.map( todo => {
+            return <Todo 
                     todo={todo} 
-                    deleteTodo={this.deleteTodo}
                     handleCheck={this.handleCheck}
+                    deleteTodo={this.deleteTodo}
                 />
-        }) : <h3 className="emptyTodoList">No more todos!</h3>
+        }) : <h2 className="emptyTodoList">No more todos!</h2>
 
         return (
             <div className="container">
                 <h1 className="title">Todo List</h1>
-                <NewTodo 
-                    todo={this.state.todos} 
-                    addTodo={this.addTodo}
-                />
-                {todoComponent}
+                <NewTodo addTodo={this.addTodo}/>
+                <div className="todoContainer">{todoComponents}</div>
             </div>
         )
     }

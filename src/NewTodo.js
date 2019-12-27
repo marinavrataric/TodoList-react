@@ -6,40 +6,34 @@ class NewTodo extends Component {
         this.state = {
             content: ''
         }
-        this.handleChange = this.handleChange.bind(this)
-        this.handleAddTodo = this.handleAddTodo.bind(this)
     }
 
-    handleChange(e) {
+    handleChange = (e) => {
         this.setState({
             content: e.target.value
         })
     }
 
-    handleAddTodo(e) {
+    handleSubmit = (e) => {
         e.preventDefault()
-        //console.log(this.state)
         this.setState({
             content: ''
         })
-        this.props.addTodo(this.state)
+        document.querySelector('.inputTodoTxt').value !== '' && this.props.addTodo(this.state)        
+        document.querySelector('.inputTodoTxt').value = ''
     }
 
-    render() {      
+    render() {
         return (
             <div>
-                <input
-                    type="text"
-                    placeholder="Write a todo"
-                    className="inputTodoTxt"
-                    value={this.state.content}
-                    onChange={this.handleChange}>
-                </input>
-
-                <button
-                    className="addTodoBtn"
-                    onClick={this.handleAddTodo}
-                >Add</button>
+                <form onSubmit={this.handleSubmit}>
+                    <input
+                        className="inputTodoTxt"
+                        type="text"
+                        placeholder="Write a todo..."
+                        onChange={this.handleChange}>
+                    </input>
+                </form>
             </div>
         )
     }

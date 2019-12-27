@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: crimson;
+  background-color: rgb(49, 100, 158);
   font-family: 'Raleway';
 }
 
@@ -10,36 +10,33 @@ body {
   padding: 100px 0;
 }
 
+.title {
+  text-align: center;
+  margin-bottom: 60px;
+  color: white;
+  font-size: 38px;
+  text-shadow: 2px 2px 5px rgb(8, 8, 8);
+}
+
 .inputTodoTxt {
-  width: 270px;
+  width: 350px;
   padding: 10px;
   font-size: 16px;
   font-family: 'Raleway', sans-serif;
   margin-right: 10px;
-  border: none;
-}
-
-.addTodoBtn {
-  padding: 10px;
-  font-size: 16px;
-  width: 70px;
-  border: none;
-  background-color: rgb(166, 224, 49);
-  color: rgb(41, 41, 41);
-  font-family: 'Raleway';
-  font-weight: bold;
-  cursor: pointer;
   margin-bottom: 50px;
+  border: none;
 }
 
-.addTodoBtn:hover {
-  background-color: rgb(179, 245, 48);
+.todoContainer {
+  width: 370px;
+  box-shadow: 12px 12px 5px #203047b7;
 }
 
 .todolist {
   background-color: whitesmoke;
   width: 370px;
-  margin: 5px 0;
+  margin: 7px 0;
 }
 
 .checkbox {
@@ -56,30 +53,25 @@ body {
   letter-spacing: 2px;
 }
 
-.title {
-  text-align: center;
-  margin-bottom: 60px;
-  color: white;
-  font-family: 'Montserrat', sans-serif;
-}
-
 .deleteBtn {
   background-color: red;
   float: right;
   border: none;
   padding: 5px 10px;
-  margin-top: 14px;
+  margin-top: 11px;
   margin-right: 10px;
   color: white;
   cursor: pointer;
 }
 
 .deleteBtn:hover {
-  background-color: rgb(173, 0, 0);
+  background-color: crimson;
 }
 
 .emptyTodoList {
   width: 370px;
   text-align: center;
   color: white;
+  background-color: rgb(49, 100, 158);
+  font-style: italic;
 }
